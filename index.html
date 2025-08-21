@@ -19,6 +19,87 @@
 
   </head>
   <body>
+    <style>
+    /* Common Floating Button Style */
+    .social-float {
+      position: fixed;
+      right: 20px;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-float {
+      bottom: 20px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
+    }
+
+    /* Instagram Button */
+    .instagram-float {
+      bottom: 90px; /* space above WhatsApp */
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      box-shadow: 0 4px 12px rgba(214, 41, 118, 0.6);
+    }
+
+    /* Hover Effects */
+    .social-float:hover {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.08);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Tooltip */
+    .social-float::after {
+      position: absolute;
+      right: 65px;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-float::after {
+      content: "💬 WhatsApp Us";
+    }
+
+    .instagram-float::after {
+      content: "📸 Instagram";
+    }
+
+    .social-float:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
 
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light">
@@ -245,6 +326,18 @@
             </div>
         </div>
     </section>
+      <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919698983470?text=Hello,%20I%20checked%20your%20portfolio%20and%20I%E2%80%99m%20interested%20in%20collaborating%20with%20you."
+     class="social-float whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+      <!-- Instagram Floating Button -->
+  <a href="https://www.instagram.com/karuna_selvam_" 
+     class="social-float instagram-float" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+
 
     <!-- CONTACT -->
     <section class="contact py-5" id="contact">
